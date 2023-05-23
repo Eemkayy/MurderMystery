@@ -1,10 +1,12 @@
 public class MurderMysteryDriver{
     public static void main(String[]args){
         //getCorrelations (adj list), potentialSuspects, addClue, removeClue, Accuse (person has 3 attempts to guess it right), getShortestDrive  
-        String[] methods = {"getCorrelations", "identifyVictim" ,"potentialSuspects", "getShortestDrive", "addClue", "removeClue", "Accuse"};
+        String[] methods = {"establishCorrelations", "identifyVictim" ,"potentialSuspects", "getShortestDrive", "addClue", "removeClue", "Accuse"};
         String[] options = {"Get a new set of people","Try another method ","Suspect's on the loose, and they shall remain that way for now (Quit)"};
 
         int optionsChoice =1;
+
+        MurderMystery MurderSetting = new MurderMystery();
 
         System.out.println("Max: Welcome detective, we've been waiting for you!");
         System.out.println("Max: A person has been murdered here, and we need your help!");
@@ -21,7 +23,7 @@ public class MurderMysteryDriver{
                 for (int i =0; i< methods.length;i++){
                     StdOut.printf("%d. %s\n", i+1, methods[i]);
                 }
-                StdOut.println("You: Let me try...");
+                StdOut.print("You: Let me try...");
                 int choice = Integer.parseInt(StdIn.readLine());
                 switch (choice){
 
@@ -29,30 +31,32 @@ public class MurderMysteryDriver{
                     //Would make most sense. However... Dijkstra..?
 
                     case 1:
-                    //getCorrelations
+                    //establishCorrelations
                     StdOut.println("You: Tsh... might as well see who's connected with who");
+                    MurderSetting.establishCorrelations(inputFile);
+                    
 
                     case 2:
                     //identifyVictim
-                    StdOut.println("You: Gotta pay a few trips and see who's not breathing...");
+                    //StdOut.println("You: Gotta pay a few trips and see who's not breathing...");
 
-                    StdOut.println("You: Okay, victim identified, that's one less hurdle...");
+                    //StdOut.println("You: Okay, victim identified, that's one less hurdle...");
 
                     case 3:
                     //potentialSuspects
-                    StdOut.println("Aight... so who do we have as a suspect right now");
+                    //StdOut.println("Aight... so who do we have as a suspect right now");
                     //make a method that, if some suspect does not have a matching clue, remove from that suspect list
                     //output the remaining list
 
                     case 4:
                     //getShortestDrive
-                    StdOut.println("They had to be quick about it... so... who did it in the shortest time?");
+                    //StdOut.println("They had to be quick about it... so... who did it in the shortest time?");
                     //Dijkstra's
 
 
                     case 5:
                     //addClue
-                    StdOut.println("Let me add the following as a clue...");
+                    //StdOut.println("Let me add the following as a clue...");
                     //there's probably going to be some sort of format of adding clues.
                     //Clues are probably going to be added either to an ArrayList or some sort of HashMap
 
@@ -60,15 +64,15 @@ public class MurderMysteryDriver{
                     //removeClue
 
                     //method comes here, then the print out
-                    StdOut.println("Nevermind, scratch that, doesn't add up...");
+                    //StdOut.println("Nevermind, scratch that, doesn't add up...");
 
                     case 7:
                     //Accuse
-                    StdOut.println("Welp, I found my murderer, you're going to jail!");
+                    //StdOut.println("Welp, I found my murderer, you're going to jail!");
 
                     default:
                     //not a real choice
-                    StdOut.println("Max: *runs back* Please be serious detective! *runs away yet again*");
+                    //StdOut.println("Max: *runs back* Please be serious detective! *runs away yet again*");
 
                 }
                 StdIn.resetFile();
